@@ -5,21 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
-  <h1>Hello World</h1>
-  <form action="" id="form">
-    <label for="">Amount</label>
-    <input type="number" name="" id="amount">
-    <label for="">Time in years</label>
-    <input type="number" name="" id="time">
-    <label for="">Interest</label>
-    <input type="number" name="" id="interest">
-    <input type="submit" name="" id="btn" value="Submit">
-  </form>
+  <div class="container">
+    <h1>Hello World</h1>
+    <form action="" class="form">
 
-  <h1 class="stuff"></h1>
+      <label for="">Amount</label>
+      <input type="number" name="" id="amount">
+      <label for="">Time in years</label>
+      <input type="number" name="" id="time">
+      <label for="">Interest</label>
+      <input type="number" name="" id="interest">
+      <input type="submit" name="" id="btn" value="Submit">
+    </form>
 
+    <div class="calculation">
+      <h1 class="total"></h1>
+      <h1 class="invested"></h1>
+      <h1 class="interest"></h1>
+    </div>
+  </div>
 
   <script>
     let info = []
@@ -33,16 +40,17 @@
         interest: document.getElementById('interest').value
       }
 
-      info.push(math);
+      // info.push(math);
 
-      // let future_value = info[0].amount * (1 + info[0].interest/100) ** info[0].time
-      // document.getElementById('stuff').innerHTML = future_value.toFixed(2)
-      for (let i = 0; i <= info[0].time; i++) {
-        // document.querySelector('.stuff').insertAdjacentHTML('beforeend',`<li>year ${ i } - ${(info[0].amount * (1 + info[0].interest / 100) ** i).toFixed(2)}</li>`)
-        // console.log(`year ${i}- ${(info[0].amount * (1 + info[0].interest / 100) ** i).toFixed(2)}`);
-        console.log(`year ${i}- ${info[0].amount * (1 + info[0].interest / 100)*(((1 + info[0].interest/100)**i)-1)/i}`);
+      document.querySelector('.total').insertAdjacentHTML('beforeend', `<li>${(math.amount * ((1 + math.interest / 100) ** math.time - 1) / (math.interest / 100) * (1 + math.interest / 100)).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</li>`)
+      document.querySelector('.invested').insertAdjacentHTML('beforeend', `<li>${(math.amount * math.time).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }</li>`)
+      document.querySelector('.interest').insertAdjacentHTML('beforeend', `<li>${((math.amount * ((1 + math.interest / 100) ** math.time - 1) / (math.interest / 100) * (1 + math.interest / 100)) - (math.amount * math.time)).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }</li>`)
+      // for (let i = 1; i <= math.time; i++) {
+      //   // FV Annuity 0 https://www.investopedia.com/terms/f/future-value-annuity.asp
 
-      }
+      //   document.querySelector('.stuff').insertAdjacentHTML('beforeend',`<li>year ${i} - ${(math.amount *  ((1 + math.interest/100)**i-1)/(math.interest/100)*(1+math.interest/100)).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }</li>`);
+
+      // }
 
 
 
@@ -58,8 +66,7 @@
     // document.getElementById('btn').addEventListener('click', (e) => {
 
     // })
-    //  testeste
-    let x = []
+
   </script>
 </body>
 </html>
