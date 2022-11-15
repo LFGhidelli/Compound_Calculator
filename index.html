@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Hello World</h1>
+  <form action="" id="form">
+    <label for="">Amount</label>
+    <input type="number" name="" id="amount">
+    <label for="">Time in years</label>
+    <input type="number" name="" id="time">
+    <label for="">Interest</label>
+    <input type="number" name="" id="interest">
+    <input type="submit" name="" id="btn" value="Submit">
+  </form>
+
+  <h1 class="stuff"></h1>
+
+
+  <script>
+    let info = []
+
+
+    const calculate = (e) => {
+      e.preventDefault();
+      let math = {
+        amount: document.getElementById('amount').value,
+        time: document.getElementById('time').value,
+        interest: document.getElementById('interest').value
+      }
+
+      info.push(math);
+
+      // let future_value = info[0].amount * (1 + info[0].interest/100) ** info[0].time
+      // document.getElementById('stuff').innerHTML = future_value.toFixed(2)
+      for (let i = 0; i <= info[0].time; i++) {
+        // document.querySelector('.stuff').insertAdjacentHTML('beforeend',`<li>year ${ i } - ${(info[0].amount * (1 + info[0].interest / 100) ** i).toFixed(2)}</li>`)
+        // console.log(`year ${i}- ${(info[0].amount * (1 + info[0].interest / 100) ** i).toFixed(2)}`);
+        console.log(`year ${i}- ${info[0].amount * (1 + info[0].interest / 100)*(((1 + info[0].interest/100)**i)-1)/i}`);
+
+      }
+
+
+
+
+      document.querySelector('form').reset()
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.getElementById('btn').addEventListener('click', calculate)
+
+    })
+
+    // document.getElementById('btn').addEventListener('click', (e) => {
+
+    // })
+
+  </script>
+</body>
+</html>
