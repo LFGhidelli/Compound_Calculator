@@ -13,18 +13,29 @@
     <form action="" class="form">
 
       <label for="">Amount</label>
-      <input type="number" name="" id="amount">
+      <input class='form' type="" name="" id="amount">
       <label for="">Time in years</label>
-      <input type="number" name="" id="time">
+      <input class='form' type="" name="" id="time">
       <label for="">Interest</label>
-      <input type="number" name="" id="interest">
-      <input type="submit" name="" id="btn" value="Submit">
+      <input class='form' type="" name="" id="interest">
+      <input class='submit-btn' type="submit" name="" id="btn" value="Submit">
     </form>
 
     <div class="calculation">
-      <h1 class="total"></h1>
-      <h1 class="invested"></h1>
-      <h1 class="interest"></h1>
+
+
+      <div class="text-invested">
+        <h1 class="invested">Total Invested</h1>
+      </div>
+
+      <div class="text-interest">
+        <h1 class="interest">Interest</h1>
+      </div>
+
+      <div class="text-total">
+        <h1 class="total">Future Value</h1>
+      </div>
+
     </div>
   </div>
 
@@ -42,9 +53,9 @@
 
       // info.push(math);
 
-      document.querySelector('.total').insertAdjacentHTML('beforeend', `<li>${(math.amount * ((1 + math.interest / 100) ** math.time - 1) / (math.interest / 100) * (1 + math.interest / 100)).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</li>`)
-      document.querySelector('.invested').insertAdjacentHTML('beforeend', `<li>${(math.amount * math.time).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }</li>`)
-      document.querySelector('.interest').insertAdjacentHTML('beforeend', `<li>${((math.amount * ((1 + math.interest / 100) ** math.time - 1) / (math.interest / 100) * (1 + math.interest / 100)) - (math.amount * math.time)).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }</li>`)
+      document.querySelector('.invested').insertAdjacentHTML('afterend', `<h2>${(math.amount * math.time).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }</h2>`)
+      document.querySelector('.interest').insertAdjacentHTML('afterend', `<h2>${((math.amount * ((1 + math.interest / 100) ** math.time - 1) / (math.interest / 100) * (1 + math.interest / 100)) - (math.amount * math.time)).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }</h2>`)
+      document.querySelector('.total').insertAdjacentHTML('afterend', `<h2>${(math.amount * ((1 + math.interest / 100) ** math.time - 1) / (math.interest / 100) * (1 + math.interest / 100)).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</h2>`)
       // for (let i = 1; i <= math.time; i++) {
       //   // FV Annuity 0 https://www.investopedia.com/terms/f/future-value-annuity.asp
 

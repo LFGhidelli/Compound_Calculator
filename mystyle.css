@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Share+Tech+Mono&family=Space+Mono&display=swap');
+
 .container {
   padding: 0 130px;
 }
@@ -12,4 +14,47 @@
   display: flex;
   justify-content: space-around;
   list-style: none;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-top: 64px;
+  font-family: 'Share Tech Mono', monospace;
+
+}
+
+.text-total h2 {
+  color: #29A645;
+  text-align: center;
+}
+
+.text-invested h2 {
+  color: #0077BD;
+  text-align: center;
+}
+
+.text-interest h2 {
+  color: #0077BD;
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 20px;
+}
+
+.submit-btn {
+  background-color: #0077BD;
+  border: none;
+  padding: 14px 40px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 4px;
 }
