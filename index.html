@@ -35,49 +35,15 @@
       <div class="text-total">
         <h1 class="total">Future Value</h1>
       </div>
-
     </div>
+
+
+    <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
   </div>
 
-  <script>
-    let info = []
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-
-    const calculate = (e) => {
-      e.preventDefault();
-      let math = {
-        amount: document.getElementById('amount').value,
-        time: document.getElementById('time').value,
-        interest: document.getElementById('interest').value
-      }
-
-      // info.push(math);
-
-      document.querySelector('.invested').insertAdjacentHTML('afterend', `<h2>${(math.amount * math.time).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }</h2>`)
-      document.querySelector('.interest').insertAdjacentHTML('afterend', `<h2>${((math.amount * ((1 + math.interest / 100) ** math.time - 1) / (math.interest / 100) * (1 + math.interest / 100)) - (math.amount * math.time)).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }</h2>`)
-      document.querySelector('.total').insertAdjacentHTML('afterend', `<h2>${(math.amount * ((1 + math.interest / 100) ** math.time - 1) / (math.interest / 100) * (1 + math.interest / 100)).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</h2>`)
-      // for (let i = 1; i <= math.time; i++) {
-      //   // FV Annuity 0 https://www.investopedia.com/terms/f/future-value-annuity.asp
-
-      //   document.querySelector('.stuff').insertAdjacentHTML('beforeend',`<li>year ${i} - ${(math.amount *  ((1 + math.interest/100)**i-1)/(math.interest/100)*(1+math.interest/100)).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }) }</li>`);
-
-      // }
-
-
-
-
-      document.querySelector('form').reset()
-    }
-
-    document.addEventListener('DOMContentLoaded', ()=>{
-      document.getElementById('btn').addEventListener('click', calculate)
-
-    })
-
-    // document.getElementById('btn').addEventListener('click', (e) => {
-
-    // })
-
-  </script>
+  <script src="script.js"></script>
+  <script src="chart.js"></script>
 </body>
 </html>
